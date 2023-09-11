@@ -10,8 +10,8 @@ import {
 import {state} from "@angular/animations";
 // Se define el estado inicial en el reducer que contiene realmente las accioones que modificarn el esatdo
 
-const todo1 = new Todo('Vencer a Spiderman');
-const todo2 = new Todo('Vencer a Thanos');
+const todo1 = new Todo('Programar en Angular NGRX');
+const todo2 = new Todo('Programar Microservicios');
 todo2.completado = true;
 export const initialState: Todo[] = [todo1, todo2];
 
