@@ -6,3 +6,13 @@ export const agregarTodoAction = createAction(
   props<{texto: string}>()
 );
 
+export const toggleTodoAction = createAction(
+  '[TODO] TOGGLE TODO',
+  props<{id: number}>()
+);
+
+
+export const editarTodoAction = createAction(
+  '[TODO] EDITAR TODO',
+  props<{id: number, texto: string}>()
+);
