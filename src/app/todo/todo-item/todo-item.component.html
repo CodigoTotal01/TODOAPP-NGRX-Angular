@@ -10,7 +10,7 @@
       (blur)="terminarEdicion()"
     >
     <label (dblclick)="editar()">{{todo.texto}}</label>
-    <button class="destroy"></button>
+    <button (click)="borrarTodo()" class="destroy"></button>
   </div>
   <!--  Cuando enstra entre llaves direc tamente puede ir codigo js, referencias locales # -->
   <input class="edit"

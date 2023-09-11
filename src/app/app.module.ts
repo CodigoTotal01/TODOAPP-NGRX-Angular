@@ -9,11 +9,12 @@ import { TodoItemComponent } from './todo/todo-item/todo-item.component';
 import { TodoFooterComponent } from './todo/todo-footer/todo-footer.component';
 import { TodoAddComponent } from './todo/todo-add/todo-add.component';
 import { StoreModule } from '@ngrx/store';
-import {ROOT_REDUCERS} from "./state/state/todo.state";
+import {ROOT_REDUCERS} from "./state/todo.state";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
 import {ReactiveFormsModule} from "@angular/forms";
+import { FilterPipe } from './state/filter/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     TodosListComponent,
     TodoItemComponent,
     TodoFooterComponent,
-    TodoAddComponent
+    TodoAddComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

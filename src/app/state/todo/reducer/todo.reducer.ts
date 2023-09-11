@@ -1,6 +1,12 @@
 import {createReducer, on} from "@ngrx/store";
-import {Todo} from "../../todo/model/todo.model";
-import {agregarTodoAction, editarTodoAction, toggleTodoAction} from "../actions/todo.actions";
+import {Todo} from "../../../todo/model/todo.model";
+import {
+  agregarTodoAction,
+  borrarTodoAction,
+  editarTodoAction, limpiarCompletadosTodoAction,
+  toggleAllTodoAction,
+  toggleTodoAction
+} from "../actions/todo.actions";
 import {state} from "@angular/animations";
 // Se define el estado inicial en el reducer que contiene realmente las accioones que modificarn el esatdo
 
@@ -31,14 +37,28 @@ export const todoReducer = createReducer(
   }),
   on(editarTodoAction, (state, action) => {
     return state.map(todoEdit => {
-      if(todoEdit.id === action.id){
+      if (todoEdit.id === action.id) {
         return {
           ...todoEdit,
-          texto : action.texto
+          texto: action.texto
         }
-      }else {
+      } else {
         return todoEdit
       }
     });
   }),
+  on(borrarTodoAction, (state, {id}) => {
+    return state.filter(todoEdit => todoEdit.id !== id);
+  }),
+  on(toggleAllTodoAction, (state, {completado}) => {
+      return state.map(todoEdit => {
+        return {
+          ...todoEdit,
+          completado
+        }
+      });
+  }),
+  on(limpiarCompletadosTodoAction, (state )=> {
+    return state.filter(todoEdit => todoEdit.completado === false)
+  })
 );

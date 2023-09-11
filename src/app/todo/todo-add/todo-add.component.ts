@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
 import {Store} from "@ngrx/store";
-import {AppState} from "../../state/state/todo.state";
-import {agregarTodoAction} from "../../state/actions/todo.actions";
+import {AppState} from "../../state/todo.state";
+import {agregarTodoAction} from "../../state/todo/actions/todo.actions";
 
 @Component({
   selector: 'app-todo-add',
@@ -28,4 +28,5 @@ export class TodoAddComponent {
     this.txtInput.setValue("");
 
   }
+
 }

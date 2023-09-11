@@ -2,8 +2,8 @@ import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {Todo} from "../model/todo.model";
 import {FormControl, Validators} from "@angular/forms";
 import {Store} from "@ngrx/store";
-import {AppState} from "../../state/state/todo.state";
-import {editarTodoAction, toggleTodoAction} from "../../state/actions/todo.actions";
+import {AppState} from "../../state/todo.state";
+import {borrarTodoAction, editarTodoAction, toggleTodoAction} from "../../state/todo/actions/todo.actions";
 
 @Component({
   selector: 'app-todo-item',
@@ -57,5 +57,10 @@ export class TodoItemComponent implements OnInit {
     })
 
     this.store.dispatch(editarTodo);
+  }
+
+  borrarTodo() {
+    const action = borrarTodoAction({id: this.todo.id});
+    this.store.dispatch(action);
   }
 }
